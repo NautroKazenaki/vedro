@@ -1,0 +1,27 @@
+/* @font-face {
+  font-family: 'Font1';
+  src: url('./fonts/FuneverSansDisplayLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+/* @font-face {
+  font-family: 'Font1';
+  src: url('./fonts/Piter_Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+@font-face {
+  font-family: 'Font1';
+  src: url('./fonts/SantaCatarina.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Font1', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
