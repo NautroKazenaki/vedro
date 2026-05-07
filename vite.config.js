@@ -8,7 +8,6 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: 'build',
     rollupOptions: {
       output: {
         manualChunks(id) {
