@@ -1,27 +1,67 @@
-/* @font-face {
-  font-family: 'Font1';
-  src: url('./fonts/FuneverSansDisplayLight.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-} */
+@import './styles/variables.css';
 
-/* @font-face {
-  font-family: 'Font1';
-  src: url('./fonts/Piter_Sans.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} */
 @font-face {
   font-family: 'Font1';
   src: url('./fonts/SantaCatarina.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────
+   Global reset + base
+   ───────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: 'Font1', sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100dvh;
+  min-height: 100vh;
+  transition: background-color var(--dur-slow) var(--ease-in-out),
+              color var(--dur-slow) var(--ease-in-out);
 }
 
+#root {
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Swiper base resets */
+.swiper {
+  width: 100%;
+}

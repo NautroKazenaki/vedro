@@ -1,0 +1,66 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: clamp(72px, 14vw, 120px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  will-change: opacity, transform;
+  z-index: var(--z-raised);
+}
+
+/* Grain noise overlay */
+.noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .noise {
+    mix-blend-mode: screen;
+    opacity: 0.25;
+  }
+}
+
+/* Overflow container */
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Scrolling track */
+.marquee {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  will-change: transform;
+}
+
+/* Single label */
+.item {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 5.5rem);
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Bottom gradient fade into content */
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  pointer-events: none;
+}

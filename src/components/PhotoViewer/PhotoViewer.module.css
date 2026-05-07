@@ -1,0 +1,155 @@
+.section {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Empty state ─── */
+.emptyState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-9) var(--space-5);
+  min-height: 40vh;
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  color: var(--color-fg-subtle);
+  line-height: 1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.08); }
+}
+
+.emptyText {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+/* ─── Loading skeleton ─── */
+.skeleton {
+  flex: 1;
+  min-height: 60vh;
+  background: linear-gradient(
+    105deg,
+    var(--color-bg-elevated) 0%,
+    var(--color-border-mid) 40%,
+    var(--color-bg-elevated) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ─── Viewer wrap ─── */
+.viewerWrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+}
+
+/* ─── Swiper ─── */
+.swiper {
+  width: 100%;
+  height: clamp(320px, 75vw, 80vh);
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+/* ─── Photo image ─── */
+.photo {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ─── Vignette ─── */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      transparent 55%,
+      rgba(0,0,0,0.18) 100%
+    );
+  z-index: 1;
+}
+
+/* ─── Counter badge ─── */
+.counter {
+  position: absolute;
+  bottom: var(--space-5);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.counterCurrent {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.counterSep {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-fg-muted);
+}
+
+.counterTotal {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-fg-muted);
+}
+
+/* ─── Mobile fine-tuning ─── */
+@media (max-width: 480px) {
+  .swiper {
+    height: 72vw;
+    min-height: 300px;
+  }
+
+  .vignette {
+    display: none;
+  }
+}

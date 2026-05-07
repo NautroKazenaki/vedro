@@ -1,0 +1,115 @@
+.nav {
+  width: 100%;
+  padding: var(--space-4) 0 var(--space-5);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-raised);
+  background: var(--color-bg-overlay);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.swiper {
+  padding-inline: var(--space-5) !important;
+  overflow: visible !important;
+}
+
+.slide {
+  width: auto !important;
+  flex-shrink: 0;
+}
+
+/* ─── Thumbnail button ─── */
+.thumb {
+  position: relative;
+  width: clamp(64px, 14vw, 88px);
+  height: clamp(64px, 14vw, 88px);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  display: block;
+  flex-shrink: 0;
+  transition: box-shadow var(--dur-normal) var(--ease-out-expo),
+              filter var(--dur-normal) var(--ease-out-expo);
+  filter: grayscale(0.7) brightness(0.88);
+  box-shadow: var(--shadow-sm);
+}
+
+.thumb:hover {
+  filter: grayscale(0.2) brightness(1);
+  box-shadow: var(--shadow-md);
+}
+
+.thumbActive {
+  filter: grayscale(0) brightness(1.04);
+  box-shadow: var(--glow-active);
+}
+
+/* ─── Glassmorphism active ring ─── */
+.ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-fg);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Image fill ─── */
+.image {
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: var(--radius-full);
+}
+
+/* ─── Hover overlay ─── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: radial-gradient(
+    circle at 50% 110%,
+    rgba(255,255,255,0.18) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-normal) var(--ease-in-out);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.thumb:hover .overlay,
+.thumbActive .overlay {
+  opacity: 1;
+}
+
+/* ─── Index number label ─── */
+.label {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-fg);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-normal) var(--ease-in-out);
+}
+
+.thumb:hover .label,
+.thumbActive .label {
+  opacity: 1;
+}
